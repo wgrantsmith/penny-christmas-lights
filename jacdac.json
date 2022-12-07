@@ -1,0 +1,20 @@
+{
+    "roles": [
+        {
+            "name": "button3",
+            "service": 343122531
+        },
+        {
+            "name": "lightLevel3",
+            "service": 400333340
+        },
+        {
+            "name": "button4",
+            "service": 343122531
+        },
+        {
+            "name": "ledStrip3",
+            "service": 309264608
+        }
+    ]
+}

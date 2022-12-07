@@ -142,15 +142,33 @@ function CandyCane () {
     }
     effect = 1
 }
-input.onButtonPressed(Button.A, function () {
+modules.button1.onEvent(jacdac.ButtonEvent.Down, function () {
+    basic.showIcon(IconNames.Heart)
+    basic.pause(1000)
+    basic.clearScreen()
+    effect = 100
     strip.clear()
-    CandyCane()
-    effect = 0
-})
-input.onButtonPressed(Button.B, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
     strip.clear()
     setChristmasColors()
     effect = 1
+})
+input.onButtonPressed(Button.A, function () {
+	
+})
+input.onButtonPressed(Button.B, function () {
+	
+})
+modules.button2.onEvent(jacdac.ButtonEvent.Down, function () {
+    basic.showIcon(IconNames.Happy)
+    basic.pause(1000)
+    basic.clearScreen()
+    effect = 100
+    strip.clear()
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    strip.clear()
+    CandyCane()
+    effect = 0
 })
 let numVariations = 0
 let effect = 0
@@ -162,11 +180,18 @@ strip.setBrightness(255)
 strip.easeBrightness()
 effect = 100
 basic.forever(function () {
-    if (effect == 0 || effect == 1) {
-        strip.rotate(1)
-        strip.show()
-        basic.pause(100)
+    if (modules.lightLevel1.lightLevel() > 60) {
+        if (effect == 0 || effect == 1) {
+            strip.rotate(1)
+            strip.show()
+            basic.pause(100)
+        } else {
+        	
+        }
     } else {
-    	
+        strip.clear()
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        strip.show()
+        strip.clear()
     }
 })
